@@ -16,5 +16,9 @@ def login_page(request):
                 login(request, user)
                 return redirect('/')
             else:
-                message = 'Login failed. Please check your credentials.'
+                message = 'Login failed. Your account is disabled or your credentials are wrong.'
+    else:
+        if request.user.is_authenticated:
+            return redirect('/')
+
     return render(request, 'customlogin/login.html', context={'form': form, 'message': message})
