@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/css/uikit.min.css" />
+
+    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
+        <div class="uk-width-1-1">
+            <div class="uk-container">
+                <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                    <div class="uk-width-1-1@m">
+                        <div
+                            class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+                            <h3 class="uk-card-title uk-text-center">Please login</h3>
+                            <p class="uk-text-warning">{{message}}</p>
+                            <form method="post">
+                                {% csrf_token %}
+                                
+                                {% for field in form.visible_fields %}
+                                <div class="uk-margin">
+                                    <div class="uk-inline uk-width-1-1">
+                                        <input class="uk-input uk-form" {% if field.name == "password" %} type="password" {% else %} type="text" {% endif %} placeholder="{{ field.label }}" name="{{ field.name }}">
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                <div class="uk-margin">
+                                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/js/uikit-icons.min.js"></script>
+
+</html>
