@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/css/uikit.min.css" />
+    <style type="text/css">
+        {% if custom_theme.logo %}
+    
+        .navbar-brand {
+            background-image: url({{ custom_theme.logo.url }});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    
+        {% endif %}
+    </style>
+    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
+        <div class="uk-width-1-1">
+            <div class="uk-container">
+                <div class="uk-child-width-expand@m uk-text-center" uk-grid>
+                    {% for app in apps %}
+                        <a class="uk-link-reset" href="{{app.url}}">
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-body">
+                                    <h3 class="uk-card-title uk-text-muted">{{app.title}}</h3>
+                                    <p class="uk-text-muted">{{app.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/js/uikit-icons.min.js"></script>
+
+</html>

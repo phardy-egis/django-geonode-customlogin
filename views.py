@@ -3,13 +3,15 @@ from django.shortcuts import render, redirect
 from .forms import LoginForm
 from urllib.parse import unquote
 from geonode.themes.context_processors import custom_theme
+from django.urls import reverse
+from .models import App
 
 def login_page(request):
     """
     This view takes GET parameter named "next" as input and redirect user to the request page if login form is submitted sucessfully
     """
     form = LoginForm()
-    next_page = unquote(request.GET.get('next', '/'))
+    next_page = unquote(request.GET.get('next', reverse("appselect")))
     message = ''
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -33,7 +35,15 @@ def login_page(request):
         logo_url = theme['custom_theme'].logo.url
         if not logo_url:
             logo_url = '/static/mapstore/img/geonode-logo.svg'
+        title = theme['custom_theme'].name
+        if not title:
+            title = "Geonode"
     except :
+        title = "Geonode"
         logo_url = '/static/mapstore/img/geonode-logo.svg'
 
-    return render(request, 'customlogin/login.html', context={'form': form, 'message': message, 'logo': logo_url})
+    return render(request, 'customlogin/login.html', context={'form': form, 'message': message, 'logo': logo_url, 'title':title})
+
+def app_selection_page(request):
+    apps = App.objects.all()
+    return render(request, 'customlogin/app_selection.html', context={'apps': apps})

@@ -3,7 +3,7 @@ from urllib.parse import quote
 
 
 class CheckLoginMiddleware:
-    
+
     def __init__(self, get_response):
         self.get_response = get_response
         # One-time configuration and initialization.
@@ -26,7 +26,7 @@ class CheckLoginMiddleware:
             return None
         else:
             # IF login page is requested by a non authenticated user, user is not redirected
-            if '/customlogin' in request.path or '/uploaded' in request.path: 
+            if '/customlogin/' == request.path or '/uploaded' in request.path: 
                 return None
             # IF another page is requested by a non authenticated user, user is redirected
             else:
