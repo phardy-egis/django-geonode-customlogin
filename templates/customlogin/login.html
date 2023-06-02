@@ -3,7 +3,18 @@
 <head>
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/css/uikit.min.css" />
-
+    <style type="text/css">
+        {% if custom_theme.logo %}
+    
+        .navbar-brand {
+            background-image: url({{ custom_theme.logo.url }});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    
+        {% endif %}
+    </style>
     <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
 </head>
 
@@ -15,7 +26,11 @@
                     <div class="uk-width-1-1@m">
                         <div
                             class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-                            <h3 class="uk-card-title uk-text-center">Please login</h3>
+                            <div class="uk-flex uk-flex-center uk-width-1-1" style="height:5vh;">
+                                <img src="{{logo}}"/>
+                            </div>
+                            <h3 class="uk-card-title uk-text-center">Welcome on SPADE</h3>
+                            <p class="uk-text-center">Please login</p>
                             <p class="uk-text-warning">{{message}}</p>
                             <form method="post">
                                 {% csrf_token %}
@@ -23,7 +38,7 @@
                                 {% for field in form.visible_fields %}
                                 <div class="uk-margin">
                                     <div class="uk-inline uk-width-1-1">
-                                        <input class="uk-input uk-form" {% if field.name == "password" %} type="password" {% else %} type="text" {% endif %} placeholder="{{ field.label }}" name="{{ field.name }}">
+                                        <input class="uk-input uk-form uk-text-center" {% if field.name == "password" %} type="password" {% else %} type="text" {% endif %} placeholder="{{ field.label }}" name="{{ field.name }}">
                                     </div>
                                 </div>
                                 {% endfor %}
