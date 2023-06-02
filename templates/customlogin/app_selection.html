@@ -22,9 +22,9 @@
     <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
         <div class="uk-width-1-1">
             <div class="uk-container">
-                <div class="uk-child-width-expand@m uk-text-center" uk-grid>
+                <div class="uk-flex uk-text-center uk-flex-center" uk-height-match="target: > a > .uk-card" uk-grid>
                     {% for app in apps %}
-                        <a class="uk-link-reset" href="{{app.url}}">
+                        <a class="uk-link-reset uk-width-1-4@m" href="{{app.url}}">
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-body">
                                     <h3 class="uk-card-title uk-text-muted">{{app.name}}</h3>
