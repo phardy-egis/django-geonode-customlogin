@@ -36,6 +36,7 @@ class CheckLoginMiddleware:
                 or '/api/adminRole'         in request.path 
                 or '/api/roles'             in request.path 
                 or '/api/users'             in request.path 
+                or '/userdetails/' == request.path 
             ): 
                 return None
             # IF another page is requested by a non authenticated user, user is redirected
