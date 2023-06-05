@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.2.0](https://github.com/phardy-egis/django-geonode-customlogin/compare/v0.1.0...v0.2.0) (2023-06-05)
+
+
+### Features
+
+* added dynamic management for app redirections ([bdde704](https://github.com/phardy-egis/django-geonode-customlogin/commit/bdde704616bfc78ea89585b42f2e7b1652728df0))
+* added Geonode main logo on login page ([de7eb82](https://github.com/phardy-egis/django-geonode-customlogin/commit/de7eb823015d16259c993c6c65c5a379a5bb1b6c))
+* added logo in view ([186a57a](https://github.com/phardy-egis/django-geonode-customlogin/commit/186a57a105fc11476e83254c79a7e877a2f9f960))
+* implemented middleware to validate each reaquests ([9efbea5](https://github.com/phardy-egis/django-geonode-customlogin/commit/9efbea5d8608a760f7006a482d8b4ac3a784e3cf))
+
+
+### Bug Fixes
+
+* app name not displaying properly ([230c86b](https://github.com/phardy-egis/django-geonode-customlogin/commit/230c86b4a2773273663363534cec380a79d2e0ea))
+* appselect card size adjusted ([a3a065c](https://github.com/phardy-egis/django-geonode-customlogin/commit/a3a065c0f9c399ba1074dcf2430d3f76a1ee6ecb))
+* middleware compatibility issue with geoserver REST OAUTH2 role service ([ca0e004](https://github.com/phardy-egis/django-geonode-customlogin/commit/ca0e0041e4c5ba2e4f4cad825ca9f419d84566bf))
+* welcome message removed on full page login page ([7884fd1](https://github.com/phardy-egis/django-geonode-customlogin/commit/7884fd17c1aca929bc73e564c92da692617cfa08))
+
+
+### Documentation
+
+* installation instructions corrected ([e698dff](https://github.com/phardy-egis/django-geonode-customlogin/commit/e698dff5bba0872cc657da2f86500c2ddf116659))
+
 ## 0.1.0 (2023-06-01)
 
 
