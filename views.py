@@ -1,7 +1,7 @@
 from django.contrib.auth import login, authenticate  # add to imports
 from django.shortcuts import render, redirect
 from .forms import LoginForm
-from urllib.parse import unquote
+from urllib.parse import unquote_plus
 from geonode.themes.context_processors import custom_theme
 from django.urls import reverse
 from .models import App
@@ -11,7 +11,9 @@ def login_page(request):
     This view takes GET parameter named "next" as input and redirect user to the request page if login form is submitted sucessfully
     """
     form = LoginForm()
-    next_page = unquote(request.GET.get('next', reverse("appselect")))
+    next_page = unquote_plus(request.get_full_path().split("/?next=",1)[1])
+    if not next_page:
+        next_page = reverse("appselect")
     message = ''
     if request.method == 'POST':
         form = LoginForm(request.POST)
