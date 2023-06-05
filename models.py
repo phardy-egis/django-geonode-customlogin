@@ -18,6 +18,12 @@ class App(models.Model):
         blank=False,
         null=False
     )
+    orderidx = models.IntegerField(
+        verbose_name='Index of order (items are sorted in ascending order)',
+        blank=False,
+        null=False,
+        default=0
+    )
 
     def __str__(self) -> str:
         return self.name

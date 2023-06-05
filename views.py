@@ -47,5 +47,5 @@ def login_page(request):
     return render(request, 'customlogin/login.html', context={'form': form, 'message': message, 'logo': logo_url, 'title':title})
 
 def app_selection_page(request):
-    apps = App.objects.all()
+    apps = App.objects.all().order_by('orderidx')
     return render(request, 'customlogin/app_selection.html', context={'apps': apps})
