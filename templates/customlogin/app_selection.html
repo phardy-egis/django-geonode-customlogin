@@ -25,10 +25,10 @@
                 <div class="uk-flex uk-text-center uk-flex-center" uk-height-match="target: > a > .uk-card" uk-grid>
                     {% for app in apps %}
                         <a class="uk-link-reset uk-width-1-4@m" href="{{app.url}}">
-                            <div class="uk-card uk-card-default">
+                            <div class="uk-card uk-card-secondary uk-card-hover uk-light">
                                 <div class="uk-card-body">
-                                    <h3 class="uk-card-title uk-text-muted">{{app.name}}</h3>
-                                    <p class="uk-text-muted">{{app.description}}</p>
+                                    <h3 class="uk-card-title">{{app.name}}</h3>
+                                    <p>{{app.description}}</p>
                                 </div>
                             </div>
                         </a>

@@ -11,10 +11,15 @@ def login_page(request):
     This view takes GET parameter named "next" as input and redirect user to the request page if login form is submitted sucessfully
     """
     form = LoginForm()
-    next_page = unquote_plus(request.get_full_path().split("/?next=",1)[1])
+    next_page = None
+    message = None
+
+    if request.GET.get('next'):
+        next_page = unquote_plus(request.get_full_path().split("/?next=",1)[1])
+    
     if not next_page:
         next_page = reverse("appselect")
-    message = ''
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -44,7 +49,10 @@ def login_page(request):
         title = "Geonode"
         logo_url = '/static/mapstore/img/geonode-logo.svg'
 
-    return render(request, 'customlogin/login.html', context={'form': form, 'message': message, 'logo': logo_url, 'title':title})
+    if message:
+        return render(request, 'customlogin/login.html', context={'form': form, 'message': message, 'logo': logo_url, 'title':title})
+    else:
+        return render(request, 'customlogin/login.html', context={'form': form, 'logo': logo_url, 'title':title})
 
 def app_selection_page(request):
     apps = App.objects.all().order_by('orderidx')
