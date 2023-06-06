@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.0](https://github.com/phardy-egis/django-geonode-customlogin/compare/v0.2.0...v0.3.0) (2023-06-06)
+
+
+### Features
+
+* added possiblity of ordering applications ([20094f2](https://github.com/phardy-egis/django-geonode-customlogin/commit/20094f2cf3b3c1eb82e813b81f868d9d4a90016f))
+* animation on hovering in appselect view ([c14312e](https://github.com/phardy-egis/django-geonode-customlogin/commit/c14312e75dcc7b38df648c3d8235e14e24681af9))
+
+
+### Bug Fixes
+
+* middleware made compatible with userdetails custom app ([1ff8c0a](https://github.com/phardy-egis/django-geonode-customlogin/commit/1ff8c0ada1cf283491e3f52bb4b56395c12fdf09))
+* ordering causing error in appselect view ([c14312e](https://github.com/phardy-egis/django-geonode-customlogin/commit/c14312e75dcc7b38df648c3d8235e14e24681af9))
+
 ## [0.2.0](https://github.com/phardy-egis/django-geonode-customlogin/compare/v0.1.0...v0.2.0) (2023-06-05)
 
 
