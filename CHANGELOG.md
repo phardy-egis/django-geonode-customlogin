@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/phardy-egis/django-geonode-customlogin/compare/v0.3.0...v0.4.0) (2023-06-08)
+
+
+### Features
+
+* **login:** message hidden if value is None ([5aaf657](https://github.com/phardy-egis/django-geonode-customlogin/commit/5aaf65772d304b0eace88e8e22e7f965b6534685))
+
 ## [0.3.0](https://github.com/phardy-egis/django-geonode-customlogin/compare/v0.2.0...v0.3.0) (2023-06-06)
 
 
