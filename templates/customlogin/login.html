@@ -30,7 +30,9 @@
                                 <img src="{{logo}}"/>
                             </div>
                             <p class="uk-text-center">Please login</p>
+                            {% if message %}
                             <p class="uk-text-warning">{{message}}</p>
+                            {% endif %}
                             <form method="post">
                                 {% csrf_token %}
                                 
